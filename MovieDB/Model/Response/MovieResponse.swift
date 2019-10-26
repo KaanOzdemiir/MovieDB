@@ -1,5 +1,5 @@
 //
-//  TopRatedMovieResponse.swift
+//  MovieResponse.swift
 //  MovieDB
 //
 //  Created by Kaan Ozdemir on 26.10.2019.
@@ -9,16 +9,16 @@
 import Foundation
 import ObjectMapper
 
-// MARK: - TopRatedMovieResponse
-class TopRatedMovieResponse: Mappable {
+// MARK: - MovieResponse
+class MovieResponse: Mappable {
     var page, totalResults, totalPages: Int?
-    var results: [TopRatedMovieResult]?
+    var results: [MovieResult]?
     
     init(
         page: Int? = nil,
         totalResults: Int? = nil,
         totalPages: Int? = nil,
-        results: [TopRatedMovieResult]? = nil
+        results: [MovieResult]? = nil
     ) {
         self.page = page
         self.totalResults = totalResults

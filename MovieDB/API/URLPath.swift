@@ -10,4 +10,6 @@ import Foundation
 
 struct URLPath {
     static let topRatedMovies = "/\(ApplicationConfig.apiVersion)/movie/top_rated"
+    static let nowPlayingMovies = "/\(ApplicationConfig.apiVersion)/movie/now_playing"
+
 }

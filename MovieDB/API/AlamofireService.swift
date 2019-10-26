@@ -22,11 +22,11 @@ class AlamofireService {
         }
     }
     
-    static func getTopRatedMovies(params: TopRatedMovieServiceParams, completion: @escaping (DataResponse<TopRatedMovieResponse>) -> ()) {
+    static func getMovies(params: MovieServiceParams, path: String, completion: @escaping (DataResponse<MovieResponse>) -> ()) {
         
         var urlComponents = URLComponents()
         urlComponents.host = ApplicationConfig.host
-        urlComponents.path = URLPath.topRatedMovies
+        urlComponents.path = path
         urlComponents.scheme = urlScheme
         
         urlComponents.queryItems = [
@@ -44,7 +44,7 @@ class AlamofireService {
         print("\n\(urlComponents.string!) istek atılıyor...")
         Alamofire.request(urlComponents.string!, method: .get, encoding: URLEncoding.default, headers: defaultHeaderParams)
             .validate(statusCode: 200..<600)
-            .responseObject { (response: DataResponse<TopRatedMovieResponse>) in
+            .responseObject { (response: DataResponse<MovieResponse>) in
             
             print(response.result.value)
             completion(response)
@@ -63,6 +63,6 @@ class AlamofireService {
                     break
                     
                 }
-            }
+        }
     }
 }

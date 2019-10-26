@@ -9,8 +9,8 @@
 import Foundation
 import ObjectMapper
 
-// MARK: - TopRatedMovieResult
-class TopRatedMovieResult: Mappable {
+// MARK: - MovieResult
+class MovieResult: Mappable {
     var popularity: Double?
     var voteCount: Int?
     var video: Bool?

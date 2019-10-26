@@ -11,13 +11,31 @@ import RxSwift
 
 class MovieRespository {
     
-    func getTopRatedMovieList(params: TopRatedMovieServiceParams) -> Observable<TopRatedMovieResponse> {
+    func getTopRatedMovieList(params: MovieServiceParams) -> Observable<MovieResponse> {
         return Observable.create({ observer -> Disposable in
             
-            AlamofireService.getTopRatedMovies(params: params, completion: { (response) in
+            AlamofireService.getMovies(params: params, path: URLPath.topRatedMovies, completion: { (response) in
                 
                 if let error = response.error {
                     print("‼️ Failed. (getTopRatedMovies) *-> Error: ", error.localizedDescription)
+                    observer.onError(error)
+                    return
+                }
+                
+                observer.onNext(response.result.value!)
+                observer.onCompleted()
+            })
+            return Disposables.create()
+        })
+    }
+    
+    func getNowPlayingMovieList(params: MovieServiceParams) -> Observable<MovieResponse> {
+        return Observable.create({ observer -> Disposable in
+            
+            AlamofireService.getMovies(params: params, path: URLPath.nowPlayingMovies, completion: { (response) in
+                
+                if let error = response.error {
+                    print("‼️ Failed. (getNowPlayingMovieList) *-> Error: ", error.localizedDescription)
                     observer.onError(error)
                     return
                 }

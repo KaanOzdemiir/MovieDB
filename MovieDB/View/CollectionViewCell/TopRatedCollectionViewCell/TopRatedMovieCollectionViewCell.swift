@@ -18,11 +18,8 @@ class TopRatedMovieCollectionViewCell: UICollectionViewCell {
     }
 
     
-    func setWith(topRatedMovie: TopRatedMovieResult) {
-        
-        
-
-        if let url = URL(string: topRatedMovie.backdropPath?.posterUrl ?? "") {
+    func setWith(topRatedMovie: MovieResult) {
+        if let url = URL(string: topRatedMovie.backdropPath?.url ?? "") {
             let processor = DownsamplingImageProcessor(size: movieBackDropImageView.frame.size)
                 |> RoundCornerImageProcessor(cornerRadius: 20)
             movieBackDropImageView.kf.indicatorType = .activity

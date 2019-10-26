@@ -1,5 +1,5 @@
 //
-//  TopRatedMovieServiceParams.swift
+//  MovieServiceParams.swift
 //  MovieDB
 //
 //  Created by Kaan Ozdemir on 26.10.2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TopRatedMovieServiceParams {
+class MovieServiceParams {
     var page: Int = 1
     var region: String?
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 extension String {
-    var posterUrl: String {
+    var url: String {
         return "\(AlamofireService.urlScheme)://image.tmdb.org/t/p/w500/\(self)"
     }
 }

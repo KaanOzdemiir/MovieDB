@@ -67,7 +67,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gyt-Zq-geB">
-                                                <rect key="frame" x="16" y="228" width="382" height="280"/>
+                                                <rect key="frame" x="16" y="212" width="382" height="280"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="280" id="3dA-ft-5jM"/>
@@ -106,7 +106,7 @@
                                                 </cells>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="plA-Nr-Ykw">
-                                                <rect key="frame" x="16" y="532" width="382" height="20"/>
+                                                <rect key="frame" x="16" y="500" width="382" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="zSD-tA-OfQ"/>
                                                 </constraints>
@@ -115,7 +115,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="n3e-1h-vKM">
-                                                <rect key="frame" x="16" y="576" width="382" height="280"/>
+                                                <rect key="frame" x="16" y="544" width="382" height="280"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="280" id="enm-tT-L7g"/>
@@ -165,10 +165,10 @@
                                             <constraint firstItem="n3e-1h-vKM" firstAttribute="centerX" secondItem="fna-Da-att" secondAttribute="centerX" id="HSw-Ah-lVL"/>
                                             <constraint firstItem="plA-Nr-Ykw" firstAttribute="width" secondItem="xk0-ZG-rkH" secondAttribute="width" id="QZZ-r9-X1E"/>
                                             <constraint firstItem="gyt-Zq-geB" firstAttribute="centerX" secondItem="fna-Da-att" secondAttribute="centerX" id="Rq7-nV-09U"/>
-                                            <constraint firstItem="gyt-Zq-geB" firstAttribute="top" secondItem="xk0-ZG-rkH" secondAttribute="bottom" constant="24" id="Vjg-5D-GZU"/>
+                                            <constraint firstItem="gyt-Zq-geB" firstAttribute="top" secondItem="xk0-ZG-rkH" secondAttribute="bottom" constant="8" id="Vjg-5D-GZU"/>
                                             <constraint firstItem="xk0-ZG-rkH" firstAttribute="top" secondItem="fna-Da-att" secondAttribute="bottom" constant="24" id="XC6-xq-2Zk"/>
                                             <constraint firstItem="gyt-Zq-geB" firstAttribute="width" secondItem="fna-Da-att" secondAttribute="width" id="dBT-pn-26a"/>
-                                            <constraint firstItem="plA-Nr-Ykw" firstAttribute="top" secondItem="gyt-Zq-geB" secondAttribute="bottom" constant="24" id="oHc-KO-U4s"/>
+                                            <constraint firstItem="plA-Nr-Ykw" firstAttribute="top" secondItem="gyt-Zq-geB" secondAttribute="bottom" constant="8" id="oHc-KO-U4s"/>
                                             <constraint firstItem="n3e-1h-vKM" firstAttribute="width" secondItem="fna-Da-att" secondAttribute="width" id="qgW-Ig-EN8"/>
                                             <constraint firstItem="plA-Nr-Ykw" firstAttribute="centerX" secondItem="xk0-ZG-rkH" secondAttribute="centerX" id="rTu-Ea-YUO"/>
                                             <constraint firstItem="xk0-ZG-rkH" firstAttribute="leading" secondItem="dbu-aq-wTy" secondAttribute="leading" constant="16" id="ygw-Y8-ISY"/>

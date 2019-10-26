@@ -9,7 +9,7 @@
 import UIKit
 
 class MovieViewController: UIViewController {
-
+    
     @IBOutlet weak var topRatedMovieCollectionView: UICollectionView!
     @IBOutlet weak var nowPlayingCollectionView: UICollectionView!
     @IBOutlet weak var popularMovieCollectionView: UICollectionView!
@@ -26,12 +26,29 @@ class MovieViewController: UIViewController {
         configureNowPlayingMovieCollectionView()
         configurePopularMovieCollectionView()
         
-        // MARK: Fetching Top Rated Movies
-        viewModel.fetchTopRatedMovieList()
-
         
         // MARK: Subscribing to Top Rated Movie Response
         subscribeTopRatedMovieResponse()
+        
+        // MARK: Fetching Top Rated Movies
+        viewModel.fetchTopRatedMovieList()
+        
+        // MARK: Subscribing to Now Playing Movie Response
+        subscribeNowPlayingMovieResponse()
+        
+        // MARK: Fetching Top Rated Movies
+        viewModel.fetchNowPlayingMovieList()
+    }
+    
+    // MARK: Subscription of Now Playing Movie Service Response
+    func subscribeNowPlayingMovieResponse() {
+        
+        viewModel.nowPlayingMovieResponse.subscribe(onNext: { [weak self] (nowPlayingMovieResponse) in
+            self?.nowPlayingCollectionView.reloadData()
+            }, onError: { (error) in
+                print(error.localizedDescription)
+        })
+            .disposed(by: viewModel.disposeBag)
     }
     
     // MARK: Subscription of Top Rated Movie Service Response
@@ -39,8 +56,8 @@ class MovieViewController: UIViewController {
         
         viewModel.topRatedMovieResponse.subscribe(onNext: { [weak self] (topRatedMovieResponse) in
             self?.topRatedMovieCollectionView.reloadData()
-        }, onError: { (error) in
-            print(error.localizedDescription)
+            }, onError: { (error) in
+                print(error.localizedDescription)
         })
             .disposed(by: viewModel.disposeBag)
     }
@@ -54,11 +71,11 @@ class MovieViewController: UIViewController {
     
     // MARK: nowPlayingCollectionView
     func configureNowPlayingMovieCollectionView() {
-        nowPlayingCollectionView.register(UINib(nibName: "NowPlayingCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "NowPlayingMovieCellID")
+        nowPlayingCollectionView.register(UINib(nibName: "NowPlayingMovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "NowPlayingMovieCellID")
         nowPlayingCollectionView.delegate = self
         nowPlayingCollectionView.dataSource = self
     }
-
+    
     // MARK: configurePopularMovieCollectionView
     func configurePopularMovieCollectionView() {
         nowPlayingCollectionView.register(UINib(nibName: "PopularMovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PopularMovieMovieCellID")
@@ -70,20 +87,42 @@ class MovieViewController: UIViewController {
 // MARK: UICollectionViewDataSource Extension
 extension MovieViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.topRatedMovieList.count
+        switch collectionView {
+        case topRatedMovieCollectionView:
+            return viewModel.topRatedMovieList.count
+        case nowPlayingCollectionView:
+            return viewModel.nowPlayingMovieList.count
+        default:
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TopRatedMovieCellID", for: indexPath) as! TopRatedMovieCollectionViewCell
         
-        let topRatedMovie = viewModel.topRatedMovieList[indexPath.item]
+        switch collectionView {
+        case topRatedMovieCollectionView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TopRatedMovieCellID", for: indexPath) as! TopRatedMovieCollectionViewCell
+            
+            let topRatedMovie = viewModel.topRatedMovieList[indexPath.item]
+            
+            cell.setWith(topRatedMovie: topRatedMovie)
+            return cell
+        case nowPlayingCollectionView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NowPlayingMovieCellID", for: indexPath) as! NowPlayingMovieCollectionViewCell
+            
+            let nowPlayingMovie = viewModel.nowPlayingMovieList[indexPath.item]
+            
+            cell.setWith(nowPlayingMovie: nowPlayingMovie)
+            return cell
+            
+        default:
+            break
+        }
         
-        cell.setWith(topRatedMovie: topRatedMovie)
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularMovieMovieCellID", for: indexPath) as! PopularMovieCollectionViewCell
+
         return cell
     }
-    
-    
 }
 
 // MARK: UICollectionViewDelegate Extension
