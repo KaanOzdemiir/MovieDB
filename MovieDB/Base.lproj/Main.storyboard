@@ -12,9 +12,9 @@
         <!--Top Rated Movies-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MovieDB" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MovieViewController" customModule="MovieDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1080"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="997"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0J5-y0-AE0">
@@ -23,7 +23,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dbu-aq-wTy">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="857"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fna-Da-att">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fna-Da-att">
                                                 <rect key="frame" x="16" y="0.0" width="382" height="160"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
@@ -36,7 +36,7 @@
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="MzR-w0-vcB">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="MzR-w0-vcB">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="160"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="SzH-cd-dfF">
@@ -44,7 +44,7 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </collectionViewCellContentView>
                                                     </collectionViewCell>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Qma-I2-OtP">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="" id="Qma-I2-OtP">
                                                         <rect key="frame" x="310" y="0.0" width="300" height="160"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ajB-UN-cIB">
@@ -53,6 +53,9 @@
                                                         </collectionViewCellContentView>
                                                     </collectionViewCell>
                                                 </cells>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now Playing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xk0-ZG-rkH">
                                                 <rect key="frame" x="16" y="184" width="382" height="20"/>
@@ -193,6 +196,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Top Rated Movies" largeTitleDisplayMode="always" id="MEC-un-eCw"/>
                     <size key="freeformSize" width="414" height="1080"/>
+                    <connections>
+                        <outlet property="nowPlayingCollectionView" destination="gyt-Zq-geB" id="1C9-tT-dnS"/>
+                        <outlet property="popularMovieCollectionView" destination="n3e-1h-vKM" id="Z3D-gw-Uyj"/>
+                        <outlet property="topRatedMovieCollectionView" destination="fna-Da-att" id="1rO-C0-Ie6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -203,9 +211,12 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="R0r-wA-7oT" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9nh-vc-9Mj">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="9nh-vc-9Mj">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.81176470588235294" green="0.31764705882352939" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="lju-k5-1nm" kind="relationship" relationship="viewControllers" id="d2d-uA-Tie"/>
@@ -219,7 +230,7 @@
         <scene sceneID="mLj-ht-MD7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lju-k5-1nm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="MOVIES" image="image" selectedImage="image-1" id="99L-mk-6zy"/>
+                    <tabBarItem key="tabBarItem" title="MOVIES" image="tab-movies" selectedImage="tab-movies-selected" id="99L-mk-6zy"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="LKJ-DW-DQn">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -237,7 +248,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="image" width="171" height="171"/>
-        <image name="image-1" width="8.5" height="8"/>
+        <image name="tab-movies" width="27" height="26"/>
+        <image name="tab-movies-selected" width="25" height="24"/>
     </resources>
 </document>
