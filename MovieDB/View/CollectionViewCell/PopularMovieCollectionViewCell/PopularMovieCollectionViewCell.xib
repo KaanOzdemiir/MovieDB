@@ -21,17 +21,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="160" height="240"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fTK-Dc-l4V">
-                        <rect key="frame" x="104" y="16" width="40" height="40"/>
+                        <rect key="frame" x="112" y="8" width="40" height="40"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laM-pJ-w3W">
-                                <rect key="frame" x="8" y="8" width="13" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <rect key="frame" x="8" y="8" width="11" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text=".8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVP-bc-rpx">
-                                <rect key="frame" x="21" y="8" width="11" height="16"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                                <rect key="frame" x="19" y="8" width="13" height="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -61,11 +61,17 @@
                 <constraint firstItem="MAk-LY-R4X" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="7oF-cT-FEe"/>
                 <constraint firstAttribute="trailing" secondItem="MAk-LY-R4X" secondAttribute="trailing" id="Q53-da-Uwh"/>
                 <constraint firstAttribute="bottom" secondItem="MAk-LY-R4X" secondAttribute="bottom" id="daG-Kb-2xx"/>
-                <constraint firstItem="fTK-Dc-l4V" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="t9y-w5-hK5"/>
-                <constraint firstAttribute="trailing" secondItem="fTK-Dc-l4V" secondAttribute="trailing" constant="16" id="ume-hE-Xga"/>
+                <constraint firstItem="fTK-Dc-l4V" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="t9y-w5-hK5"/>
+                <constraint firstAttribute="trailing" secondItem="fTK-Dc-l4V" secondAttribute="trailing" constant="8" id="ume-hE-Xga"/>
                 <constraint firstItem="MAk-LY-R4X" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="yfz-Ak-4e1"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="moviePosterImageView" destination="MAk-LY-R4X" id="YOF-Va-MS0"/>
+                <outlet property="voteAvrageContainerView" destination="fTK-Dc-l4V" id="eZk-em-lqR"/>
+                <outlet property="voteAvrageDecimalValueLabel" destination="LVP-bc-rpx" id="QbJ-sG-a3I"/>
+                <outlet property="voteAvrageIntegerValueLabel" destination="laM-pJ-w3W" id="GsH-Ch-gUt"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
         </collectionViewCell>
     </objects>

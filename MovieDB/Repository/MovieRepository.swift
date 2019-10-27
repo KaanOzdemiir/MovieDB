@@ -46,4 +46,22 @@ class MovieRespository {
             return Disposables.create()
         })
     }
+    
+    func getPopularMovieList(params: MovieServiceParams) -> Observable<MovieResponse> {
+        return Observable.create({ observer -> Disposable in
+            
+            AlamofireService.getMovies(params: params, path: URLPath.popularMovies, completion: { (response) in
+                
+                if let error = response.error {
+                    print("‼️ Failed. (getPopularMovieList) *-> Error: ", error.localizedDescription)
+                    observer.onError(error)
+                    return
+                }
+                
+                observer.onNext(response.result.value!)
+                observer.onCompleted()
+            })
+            return Disposables.create()
+        })
+    }
 }

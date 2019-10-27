@@ -43,6 +43,6 @@ class NowPlayingMovieCollectionViewCell: UICollectionViewCell {
                 }
             }
         }
-        movieNameLabel.text = nowPlayingMovie.originalTitle
+        movieNameLabel.text = nowPlayingMovie.originalTitle?.uppercased()
     }
 }

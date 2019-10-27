@@ -23,6 +23,10 @@ class MovieViewModel {
     
     var nowPlayingMovieList: [MovieResult] = []
     
+    let popularMovieResponse = PublishSubject<MovieResponse>()
+    
+    var popularMovieList: [MovieResult] = []
+    
     func fetchTopRatedMovieList() {
         
         let params = MovieServiceParams()
@@ -58,6 +62,26 @@ class MovieViewModel {
             
         }, onError: { [weak self] (error) in
             self?.nowPlayingMovieResponse.onError(error)
+        })
+        .disposed(by: disposeBag)
+    }
+    
+    // MARK: fetchPopularMovieList
+    func fetchPopularMovieList() {
+      
+      let params = MovieServiceParams()
+      params.page = 1
+        
+        movieRepository
+          .getPopularMovieList(params: params).subscribe(onNext: { [weak self] (popularMovieResponse) in
+              
+              if let popularMovieList = popularMovieResponse.results {
+                  self?.popularMovieList = popularMovieList
+              }
+            self?.popularMovieResponse.onNext(popularMovieResponse)
+            
+        }, onError: { [weak self] (error) in
+            self?.popularMovieResponse.onError(error)
         })
         .disposed(by: disposeBag)
     }

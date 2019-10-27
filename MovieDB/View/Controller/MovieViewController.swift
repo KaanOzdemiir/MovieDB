@@ -13,6 +13,7 @@ class MovieViewController: UIViewController {
     @IBOutlet weak var topRatedMovieCollectionView: UICollectionView!
     @IBOutlet weak var nowPlayingCollectionView: UICollectionView!
     @IBOutlet weak var popularMovieCollectionView: UICollectionView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     let viewModel = MovieViewModel()
     
@@ -38,6 +39,24 @@ class MovieViewController: UIViewController {
         
         // MARK: Fetching Top Rated Movies
         viewModel.fetchNowPlayingMovieList()
+        
+        // MARK: Subscribing to Popular Movie Response
+        subscribePopularMovieResponse()
+        
+        // MARK: Fetching Popular Movies
+        viewModel.fetchPopularMovieList()
+        
+    }
+    
+    // MARK: Subscription of Popular Movie Service Response
+    func subscribePopularMovieResponse() {
+        
+        viewModel.popularMovieResponse.subscribe(onNext: { [weak self] (nowPlayingMovieResponse) in
+            self?.popularMovieCollectionView.reloadData()
+            }, onError: { (error) in
+                print(error.localizedDescription)
+        })
+            .disposed(by: viewModel.disposeBag)
     }
     
     // MARK: Subscription of Now Playing Movie Service Response
@@ -78,9 +97,9 @@ class MovieViewController: UIViewController {
     
     // MARK: configurePopularMovieCollectionView
     func configurePopularMovieCollectionView() {
-        nowPlayingCollectionView.register(UINib(nibName: "PopularMovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PopularMovieMovieCellID")
-        nowPlayingCollectionView.delegate = self
-        nowPlayingCollectionView.dataSource = self
+        popularMovieCollectionView.register(UINib(nibName: "PopularMovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PopularMovieMovieCellID")
+        popularMovieCollectionView.delegate = self
+        popularMovieCollectionView.dataSource = self
     }
 }
 
@@ -92,6 +111,8 @@ extension MovieViewController: UICollectionViewDataSource {
             return viewModel.topRatedMovieList.count
         case nowPlayingCollectionView:
             return viewModel.nowPlayingMovieList.count
+        case popularMovieCollectionView:
+            return viewModel.popularMovieList.count
         default:
             return 0
         }
@@ -121,6 +142,9 @@ extension MovieViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularMovieMovieCellID", for: indexPath) as! PopularMovieCollectionViewCell
 
+        let popularMovie = viewModel.popularMovieList[indexPath.item]
+        
+        cell.setWith(popularMovie: popularMovie)
         return cell
     }
 }
