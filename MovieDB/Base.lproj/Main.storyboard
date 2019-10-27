@@ -217,6 +217,51 @@
             </objects>
             <point key="canvasLocation" x="1957.9710144927537" y="133.92857142857142"/>
         </scene>
+        <!--Profile-->
+        <scene sceneID="YaN-dt-xBe">
+            <objects>
+                <viewController id="0NO-El-Tfl" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ijG-LG-BgD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ynY-Hj-TMj">
+                                <rect key="frame" x="143" y="172.5" width="128" height="127"/>
+                                <color key="tintColor" red="0.99650770430000002" green="0.27062052489999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="PrK-l1-d5R"/>
+                                    <constraint firstAttribute="width" constant="128" id="ciA-yJ-vug"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="64"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AppLogist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gij-gV-XdN">
+                                <rect key="frame" x="16" y="308" width="382" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="id0-uV-814" firstAttribute="trailing" secondItem="Gij-gV-XdN" secondAttribute="trailing" constant="16" id="3Q2-ND-dNx"/>
+                            <constraint firstItem="Gij-gV-XdN" firstAttribute="top" secondItem="ynY-Hj-TMj" secondAttribute="bottom" constant="8" id="BsV-6l-bAS"/>
+                            <constraint firstItem="Gij-gV-XdN" firstAttribute="leading" secondItem="id0-uV-814" secondAttribute="leading" constant="16" id="bTS-E2-e68"/>
+                            <constraint firstItem="ynY-Hj-TMj" firstAttribute="centerX" secondItem="id0-uV-814" secondAttribute="centerX" id="daL-QB-bPR"/>
+                            <constraint firstItem="ynY-Hj-TMj" firstAttribute="top" secondItem="id0-uV-814" secondAttribute="top" constant="32" id="oe4-Pw-vcN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="id0-uV-814"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Profile" id="fMz-RS-fe7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="939-1c-2kp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1957" y="935"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="45D-kT-73N">
             <objects>
@@ -231,6 +276,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="lju-k5-1nm" kind="relationship" relationship="viewControllers" id="d2d-uA-Tie"/>
+                        <segue destination="Mx1-Vp-heb" kind="relationship" relationship="viewControllers" id="qEU-yY-hXU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A7A-dY-tBF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -260,9 +306,34 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="133.92857142857142"/>
         </scene>
+        <!--Profile-->
+        <scene sceneID="ban-vv-UrU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mx1-Vp-heb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="tab-profile-selected" selectedImage="tab-profile-selected" id="tMr-s8-cZ6"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="knI-eb-ATb">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0NO-El-Tfl" kind="relationship" relationship="rootViewController" id="lse-un-cjh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EwN-v1-Rlj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1048" y="935"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="person.crop.circle.fill" catalog="system" width="64" height="60"/>
         <image name="tab-movies" width="27" height="26"/>
         <image name="tab-movies-selected" width="25" height="24"/>
+        <image name="tab-profile-selected" width="24" height="24"/>
     </resources>
 </document>
