@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="236" id="KGk-i7-Jjw" customClass="PopularTVSerieTableViewCell" customModule="MovieDB" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="236"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="240" height="236"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uAL-Ir-Olq">
+                        <rect key="frame" x="0.0" y="8" width="240" height="180"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="180" id="rBb-8b-aBV"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="28"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jeL-Ib-Smc">
+                        <rect key="frame" x="192" y="16" width="40" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EM1-TN-8Mj">
+                                <rect key="frame" x="8" y="8" width="11" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text=".8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18d-7K-T0v">
+                                <rect key="frame" x="19" y="8" width="13" height="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="18d-7K-T0v" firstAttribute="leading" secondItem="EM1-TN-8Mj" secondAttribute="trailing" id="5fj-yc-mbH"/>
+                            <constraint firstItem="18d-7K-T0v" firstAttribute="top" secondItem="jeL-Ib-Smc" secondAttribute="top" constant="8" id="71m-0O-Vrn"/>
+                            <constraint firstItem="EM1-TN-8Mj" firstAttribute="top" secondItem="jeL-Ib-Smc" secondAttribute="top" constant="8" id="8Zy-nE-PB5"/>
+                            <constraint firstAttribute="width" constant="40" id="9K0-Rp-vpv"/>
+                            <constraint firstAttribute="bottom" secondItem="EM1-TN-8Mj" secondAttribute="bottom" constant="8" id="Pif-sV-Ktw"/>
+                            <constraint firstItem="EM1-TN-8Mj" firstAttribute="leading" secondItem="jeL-Ib-Smc" secondAttribute="leading" constant="8" id="Y4M-Kk-RWC"/>
+                            <constraint firstAttribute="height" constant="40" id="bMn-mO-Zv8"/>
+                            <constraint firstAttribute="trailing" secondItem="18d-7K-T0v" secondAttribute="trailing" constant="8" id="h7B-kx-e4d"/>
+                            <constraint firstAttribute="bottom" secondItem="18d-7K-T0v" secondAttribute="bottom" constant="16" id="mRL-i0-ORT"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TV Serie Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFK-ll-T2L">
+                        <rect key="frame" x="0.0" y="196" width="240" height="32"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="uAL-Ir-Olq" secondAttribute="trailing" id="6Dc-7h-tqz"/>
+                    <constraint firstItem="uAL-Ir-Olq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Gio-Tm-pxk"/>
+                    <constraint firstItem="RFK-ll-T2L" firstAttribute="top" secondItem="uAL-Ir-Olq" secondAttribute="bottom" constant="8" id="LTx-O5-NfV"/>
+                    <constraint firstAttribute="trailing" secondItem="jeL-Ib-Smc" secondAttribute="trailing" constant="8" id="MHk-jS-FR3"/>
+                    <constraint firstItem="RFK-ll-T2L" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Yos-kf-ljD"/>
+                    <constraint firstAttribute="bottom" secondItem="RFK-ll-T2L" secondAttribute="bottom" constant="8" id="ZWa-8A-8bI"/>
+                    <constraint firstItem="jeL-Ib-Smc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="cOB-vl-lsT"/>
+                    <constraint firstAttribute="trailing" secondItem="RFK-ll-T2L" secondAttribute="trailing" id="kv7-Rq-tRe"/>
+                    <constraint firstItem="uAL-Ir-Olq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="msL-fJ-uQT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="tvSerieNameLabel" destination="RFK-ll-T2L" id="Sfo-Ku-NtZ"/>
+                <outlet property="tvSeriePosterImageView" destination="uAL-Ir-Olq" id="MbS-gl-RCk"/>
+                <outlet property="voteAvrageContainerView" destination="jeL-Ib-Smc" id="Eco-XI-ZWf"/>
+                <outlet property="voteAvrageDecimalValueLabel" destination="18d-7K-T0v" id="RA8-ZT-rxR"/>
+                <outlet property="voteAvrageIntegerValueLabel" destination="EM1-TN-8Mj" id="shC-Ij-Hvb"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="114.50892857142857"/>
+        </tableViewCell>
+    </objects>
+</document>

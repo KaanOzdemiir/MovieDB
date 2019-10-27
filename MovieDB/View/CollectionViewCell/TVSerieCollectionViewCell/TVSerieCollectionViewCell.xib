@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TVSerieCollectionViewCell" customModule="MovieDB" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="160" height="280"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="160" height="280"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1q5-dW-s9T">
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="240"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="240" id="oWZ-JB-vLk"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TV Serie Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAA-xK-v7t">
+                        <rect key="frame" x="0.0" y="240" width="160" height="40"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="OAA-xK-v7t" firstAttribute="centerX" secondItem="1q5-dW-s9T" secondAttribute="centerX" id="6q5-Gw-IAX"/>
+                <constraint firstItem="OAA-xK-v7t" firstAttribute="top" secondItem="1q5-dW-s9T" secondAttribute="bottom" id="Mrh-Yb-Fip"/>
+                <constraint firstItem="OAA-xK-v7t" firstAttribute="width" secondItem="1q5-dW-s9T" secondAttribute="width" id="TlX-QI-8n2"/>
+                <constraint firstAttribute="trailing" secondItem="1q5-dW-s9T" secondAttribute="trailing" id="aYq-11-MKa"/>
+                <constraint firstItem="1q5-dW-s9T" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="jgC-Gs-4gc"/>
+                <constraint firstAttribute="bottom" secondItem="OAA-xK-v7t" secondAttribute="bottom" id="mBQ-vm-QBl"/>
+                <constraint firstItem="1q5-dW-s9T" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="r6Q-Bn-2iS"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="tvSerieNameLabel" destination="OAA-xK-v7t" id="6Wr-e1-PUB"/>
+                <outlet property="tvSeriePosterImageView" destination="1q5-dW-s9T" id="DTW-55-S0g"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="115"/>
+        </collectionViewCell>
+    </objects>
+</document>
