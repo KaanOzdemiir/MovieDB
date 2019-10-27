@@ -39,6 +39,7 @@
 		F7F54F602365CEE0005D3100 /* TVSerieServiceParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F54F5F2365CEE0005D3100 /* TVSerieServiceParams.swift */; };
 		F7F54F642365D13C005D3100 /* PopularTVSerieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F54F622365D13C005D3100 /* PopularTVSerieTableViewCell.swift */; };
 		F7F54F652365D13C005D3100 /* PopularTVSerieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7F54F632365D13C005D3100 /* PopularTVSerieTableViewCell.xib */; };
+		F7F54F672365E437005D3100 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F54F662365E437005D3100 /* MovieDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		F7F54F5F2365CEE0005D3100 /* TVSerieServiceParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVSerieServiceParams.swift; sourceTree = "<group>"; };
 		F7F54F622365D13C005D3100 /* PopularTVSerieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTVSerieTableViewCell.swift; sourceTree = "<group>"; };
 		F7F54F632365D13C005D3100 /* PopularTVSerieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularTVSerieTableViewCell.xib; sourceTree = "<group>"; };
+		F7F54F662365E437005D3100 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 			children = (
 				F7F54EFB236481B5005D3100 /* MovieViewController.swift */,
 				F7F54F4E2365C800005D3100 /* TVSerieViewController.swift */,
+				F7F54F662365E437005D3100 /* MovieDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				F7F54F5A2365CB80005D3100 /* TVSerieResponse.swift in Sources */,
 				F7F54F602365CEE0005D3100 /* TVSerieServiceParams.swift in Sources */,
 				F7F54F4A2364C8F6005D3100 /* MovieServiceParams.swift in Sources */,
+				F7F54F672365E437005D3100 /* MovieDetailViewController.swift in Sources */,
 				F7F54F642365D13C005D3100 /* PopularTVSerieTableViewCell.swift in Sources */,
 				F7F54F582365CB44005D3100 /* TVSerieRepository.swift in Sources */,
 				F7F54EFC236481B5005D3100 /* MovieViewController.swift in Sources */,

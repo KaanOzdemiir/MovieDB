@@ -151,6 +151,9 @@ extension MovieViewController: UICollectionViewDataSource {
 
 // MARK: UICollectionViewDelegate Extension
 extension MovieViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        self.performSegue(withIdentifier: "SegueMovieDetailVC", sender: nil)
+    }
 }
 
