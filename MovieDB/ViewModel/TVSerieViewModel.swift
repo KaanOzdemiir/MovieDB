@@ -15,6 +15,8 @@ class TVSerieViewModel {
     
     let tvSerieRepository = TVSerieRepository()
     
+    let genreRepository = GenreRepository()
+    
     let tvSerieResponse = PublishSubject<TVSerieResponse>()
     
     var tvSerieList: [TVSerieResult] = []
@@ -59,6 +61,10 @@ class TVSerieViewModel {
             self?.popularTVSerieResponse.onError(error)
         })
         .disposed(by: disposeBag)
+    }
+    
+    func fetchTVSerieGenreList() {
+        genreRepository.getTVSerieGenreList()
     }
 }
 

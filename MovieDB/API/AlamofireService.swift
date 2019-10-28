@@ -79,4 +79,70 @@ class AlamofireService {
            completion(response)
        }
    }
+    
+    static func getCrewAndCast(urlPath path: String, completion: @escaping (DataResponse<CreditsResponse>) -> ()) {
+        
+        var urlComponents = URLComponents()
+        urlComponents.host = ApplicationConfig.host
+        urlComponents.path = path
+        urlComponents.scheme = urlScheme
+        
+        urlComponents.queryItems = [
+            URLQueryItem(name: "api_key", value: ApplicationConfig.apiKey),
+            URLQueryItem(name: "language", value: ApplicationConfig.language)
+        ]
+        
+        print("\n\(urlComponents.string!) istek atılıyor...")
+        Alamofire.request(urlComponents.string!, method: .get, encoding: URLEncoding.default, headers: defaultHeaderParams)
+            .validate(statusCode: 200..<600)
+            .responseObject { (response: DataResponse<CreditsResponse>) in
+            
+            print(response.result.value)
+            completion(response)
+        }
+    }
+    
+    static func getMovieGenres(completion: @escaping (DataResponse<GenreResponse>) -> ()) {
+        
+        var urlComponents = URLComponents()
+        urlComponents.host = ApplicationConfig.host
+        urlComponents.path = URLPath.movieGenres
+        urlComponents.scheme = urlScheme
+        
+        urlComponents.queryItems = [
+            URLQueryItem(name: "api_key", value: ApplicationConfig.apiKey),
+            URLQueryItem(name: "language", value: ApplicationConfig.language)
+        ]
+        
+        print("\n\(urlComponents.string!) istek atılıyor...")
+        Alamofire.request(urlComponents.string!, method: .get, encoding: URLEncoding.default, headers: defaultHeaderParams)
+            .validate(statusCode: 200..<600)
+            .responseObject { (response: DataResponse<GenreResponse>) in
+            
+            print(response.result.value)
+            completion(response)
+        }
+    }
+    
+    static func getTVSerieGenres(completion: @escaping (DataResponse<GenreResponse>) -> ()) {
+        
+        var urlComponents = URLComponents()
+        urlComponents.host = ApplicationConfig.host
+        urlComponents.path = URLPath.tvSerieGenres
+        urlComponents.scheme = urlScheme
+        
+        urlComponents.queryItems = [
+            URLQueryItem(name: "api_key", value: ApplicationConfig.apiKey),
+            URLQueryItem(name: "language", value: ApplicationConfig.language)
+        ]
+        
+        print("\n\(urlComponents.string!) istek atılıyor...")
+        Alamofire.request(urlComponents.string!, method: .get, encoding: URLEncoding.default, headers: defaultHeaderParams)
+            .validate(statusCode: 200..<600)
+            .responseObject { (response: DataResponse<GenreResponse>) in
+            
+            print(response.result.value)
+            completion(response)
+        }
+    }
 }

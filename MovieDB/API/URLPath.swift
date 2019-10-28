@@ -18,4 +18,7 @@ struct URLPath {
     static let topRatedTVSeries = "/\(ApplicationConfig.apiVersion)/tv/top_rated"
     static let popularTVSeries = "/\(ApplicationConfig.apiVersion)/tv/popular"
 
+    // MARK: Movie Genre URL
+    static let movieGenres = "/\(ApplicationConfig.apiVersion)/genre/movie/list"
+    static let tvSerieGenres = "/\(ApplicationConfig.apiVersion)/genre/tv/list"
 }

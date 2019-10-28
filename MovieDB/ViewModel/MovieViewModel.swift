@@ -15,6 +15,8 @@ class MovieViewModel {
     
     let movieRepository = MovieRespository()
     
+    let genreRepository = GenreRepository()
+    
     let topRatedMovieResponse = PublishSubject<MovieResponse>()
     
     var topRatedMovieList: [MovieResult] = []
@@ -84,5 +86,9 @@ class MovieViewModel {
             self?.popularMovieResponse.onError(error)
         })
         .disposed(by: disposeBag)
+    }
+    
+    func fetchMovieGenreList() {
+        genreRepository.getMovieGenreList()
     }
 }

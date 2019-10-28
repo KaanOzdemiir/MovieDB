@@ -11,16 +11,22 @@ import UIKit
 class TVSerieViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var tvSerieCollectionView: UICollectionView!
+    @IBOutlet weak var topRatedTVSerieCollectionView: UICollectionView!
     
     @IBOutlet weak var popularTVSerieTableView: UITableView!
     
     @IBOutlet weak var popularTVSerieTableViewHeightAnchor: NSLayoutConstraint!
+    
+    @IBOutlet weak var topRatedTVSerieSpinner: UIActivityIndicatorView!
+    @IBOutlet weak var popularTVSerieSpinner: UIActivityIndicatorView!
+    
     let viewModel = TVSerieViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        topRatedTVSerieSpinner.startAnimating()
+        popularTVSerieSpinner.startAnimating()
         
         // MARK: TVSerieCollectionView Configirations
         configureTVSerieCollectionView()
@@ -39,12 +45,16 @@ class TVSerieViewController: UIViewController {
         
         // MARK: Fetching Popular TV Series
         viewModel.fetchPopularTVSerieList()
+        
+        // MARK: Fetching TV Genres
+        viewModel.fetchTVSerieGenreList()
     }
     
     // MARK: Subscription of Popular TV Serie Service Response
     func subscribePopularTVSerieResponse() {
         
         viewModel.popularTVSerieResponse.subscribe(onNext: { [weak self] (popularTVSerieResponse) in
+            self?.popularTVSerieSpinner.stopAnimating()
             self?.popularTVSerieTableView.reloadData()
             
             let height = CGFloat(self!.viewModel.popularTVSerieList.count) * self!.popularTVSerieTableView.rowHeight
@@ -66,7 +76,8 @@ class TVSerieViewController: UIViewController {
     func subscribeTopRatedTVSerieResponse() {
         
         viewModel.tvSerieResponse.subscribe(onNext: { [weak self] (tvSerieResponse) in
-            self?.tvSerieCollectionView.reloadData()
+            self?.topRatedTVSerieSpinner.stopAnimating()
+            self?.topRatedTVSerieCollectionView.reloadData()
             }, onError: { (error) in
                 print(error.localizedDescription)
         })
@@ -75,9 +86,17 @@ class TVSerieViewController: UIViewController {
     
     // MARK: configureTVSerieCollectionView
     func configureTVSerieCollectionView() {
-        tvSerieCollectionView.register(UINib(nibName: "TVSerieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TVSerieCellID")
-        tvSerieCollectionView.delegate = self
-        tvSerieCollectionView.dataSource = self
+        topRatedTVSerieCollectionView.register(UINib(nibName: "TVSerieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TVSerieCellID")
+        topRatedTVSerieCollectionView.delegate = self
+        topRatedTVSerieCollectionView.dataSource = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SegueTVSerieDetailVC" {
+            let tvSerieDetailVC = segue.destination as! MovieOrTVSerieDetailViewController
+            let tvSerie = sender as! TVSerieResult
+            tvSerieDetailVC.viewModel.tvSerie.onNext(tvSerie)
+        }
     }
 }
 
@@ -102,7 +121,10 @@ extension TVSerieViewController: UITableViewDataSource {
 
 // MARK: UITableViewDelegate Extension
 extension TVSerieViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tvSerie = viewModel.popularTVSerieList[indexPath.item]
+        self.performSegue(withIdentifier: "SegueTVSerieDetailVC", sender: tvSerie)
+    }
 }
 
 // MARK: UICollectionViewDataSource Extension
@@ -125,5 +147,8 @@ extension TVSerieViewController: UICollectionViewDataSource {
 
 // MARK: UICollectionViewDelegate Extension
 extension TVSerieViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let tvSerie = viewModel.tvSerieList[indexPath.item]
+        self.performSegue(withIdentifier: "SegueTVSerieDetailVC", sender: tvSerie)
+    }
 }
