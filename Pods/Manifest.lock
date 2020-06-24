@@ -5,6 +5,7 @@ PODS:
   - AlamofireObjectMapper (5.2.1):
     - Alamofire (~> 4.7)
     - ObjectMapper (~> 3.4)
+  - Hero (1.5.0)
   - Kingfisher (5.9.0):
     - Kingfisher/Core (= 5.9.0)
   - Kingfisher/Core (5.9.0)
@@ -24,6 +25,7 @@ PODS:
 DEPENDENCIES:
   - AlamofireNetworkActivityLogger (~> 2.0)
   - AlamofireObjectMapper (~> 5.2)
+  - Hero
   - Kingfisher (~> 5.0)
   - lottie-ios
   - RxCocoa
@@ -36,6 +38,7 @@ SPEC REPOS:
     - Alamofire
     - AlamofireNetworkActivityLogger
     - AlamofireObjectMapper
+    - Hero
     - Kingfisher
     - lottie-ios
     - ObjectMapper
@@ -50,6 +53,7 @@ SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
   AlamofireNetworkActivityLogger: 6d3398c692d2c5d83b0c58793537860aca1e383d
   AlamofireObjectMapper: 1989f690e982b71921b9253f53a4f33a9bc00d88
+  Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   Kingfisher: ff98240aebb7302bdc4f1ecd701761030ce18b16
   lottie-ios: 496ac5cea1bbf1a7bd1f1f472f3232eb1b8d744b
   ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
@@ -60,6 +64,6 @@ SPEC CHECKSUMS:
   Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
   SwiftEntryKit: 1661b766dd22b07679e6ebb326ccfbd81ceb0a20
 
-PODFILE CHECKSUM: 997c6150692cd16086a9ef06d08dd3248114503a
+PODFILE CHECKSUM: 1dccb472be454b008b34c75430c30a61f9ced51f
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1

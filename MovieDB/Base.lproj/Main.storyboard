@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R0r-wA-7oT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R0r-wA-7oT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -244,6 +244,9 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="6Xn-d7-B9E"/>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1080"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="nowPlayingCollectionView" destination="gyt-Zq-geB" id="1C9-tT-dnS"/>
                         <outlet property="nowPlayingMovieSpinner" destination="XFT-nm-O75" id="lvh-F9-PXA"/>
@@ -252,7 +255,7 @@
                         <outlet property="scrollView" destination="0J5-y0-AE0" id="N2H-a1-ZAe"/>
                         <outlet property="topRatedMovieCollectionView" destination="fna-Da-att" id="1rO-C0-Ie6"/>
                         <outlet property="topRatedMovieSpinner" destination="sN4-j9-4BH" id="mOl-Pa-Y9O"/>
-                        <segue destination="RnO-GF-p7S" kind="presentation" identifier="SegueMovieDetailVC" modalPresentationStyle="automatic" id="5ZY-zT-93x"/>
+                        <segue destination="RnO-GF-p7S" kind="presentation" identifier="SegueMovieDetailVC" modalPresentationStyle="fullScreen" id="5ZY-zT-93x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -408,13 +411,13 @@
         <!--Movie OrTV Serie Detail View Controller-->
         <scene sceneID="s4w-Bd-96b">
             <objects>
-                <viewController id="RnO-GF-p7S" customClass="MovieOrTVSerieDetailViewController" customModule="MovieDB" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="RnO-GF-p7S" customClass="MovieOrTVSerieDetailViewController" customModule="MovieDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aFr-K0-qYG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WV7-M8-9QE">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="253" verticalHuggingPriority="253" translatesAutoresizingMaskIntoConstraints="NO" id="BFX-L4-F0g">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="463.5"/>
@@ -496,11 +499,8 @@
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRH-cr-iwL">
-                                                <rect key="frame" x="160" y="284" width="238" height="44"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="Ag3-X6-0u4"/>
-                                                </constraints>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRH-cr-iwL">
+                                                <rect key="frame" x="160" y="298.5" width="238" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -534,7 +534,7 @@
                                         <constraints>
                                             <constraint firstItem="1VI-70-BME" firstAttribute="centerX" secondItem="NPp-Hd-uxc" secondAttribute="centerX" id="1kK-I2-Ve9"/>
                                             <constraint firstItem="8gi-pn-TvN" firstAttribute="centerY" secondItem="9IM-HX-qL0" secondAttribute="bottom" id="45L-DM-ew1"/>
-                                            <constraint firstItem="cRH-cr-iwL" firstAttribute="bottom" secondItem="8gi-pn-TvN" secondAttribute="centerY" id="7WP-Og-6Ac"/>
+                                            <constraint firstItem="cRH-cr-iwL" firstAttribute="bottom" secondItem="8gi-pn-TvN" secondAttribute="centerY" constant="-8" id="7WP-Og-6Ac"/>
                                             <constraint firstItem="9IM-HX-qL0" firstAttribute="top" secondItem="BFX-L4-F0g" secondAttribute="top" id="94K-ad-1pq"/>
                                             <constraint firstItem="8gi-pn-TvN" firstAttribute="leading" secondItem="BFX-L4-F0g" secondAttribute="leading" constant="16" id="EgN-5H-sze"/>
                                             <constraint firstItem="9IM-HX-qL0" firstAttribute="width" secondItem="BFX-L4-F0g" secondAttribute="width" id="F5s-YK-l2J"/>
@@ -547,6 +547,7 @@
                                             <constraint firstItem="NPp-Hd-uxc" firstAttribute="centerY" secondItem="9IM-HX-qL0" secondAttribute="centerY" id="Z0J-t1-tQu"/>
                                             <constraint firstItem="DbU-by-Co1" firstAttribute="width" secondItem="9IM-HX-qL0" secondAttribute="width" constant="-32" id="bhc-zh-CiY"/>
                                             <constraint firstItem="1VI-70-BME" firstAttribute="centerY" secondItem="NPp-Hd-uxc" secondAttribute="centerY" id="bxa-N5-zG8"/>
+                                            <constraint firstItem="cRH-cr-iwL" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8gi-pn-TvN" secondAttribute="top" id="cK1-rV-r6t"/>
                                             <constraint firstItem="ZGm-bs-nCb" firstAttribute="leading" secondItem="3kF-S1-r0Z" secondAttribute="leading" id="cYJ-Ic-UHU"/>
                                             <constraint firstItem="NPp-Hd-uxc" firstAttribute="centerX" secondItem="9IM-HX-qL0" secondAttribute="centerX" id="cj8-On-vfn"/>
                                             <constraint firstItem="ZGm-bs-nCb" firstAttribute="top" secondItem="9IM-HX-qL0" secondAttribute="bottom" constant="16" id="e1Z-5n-6xE"/>
@@ -685,6 +686,9 @@
                         <viewLayoutGuide key="safeArea" id="Qy3-mf-wU4"/>
                     </view>
                     <navigationItem key="navigationItem" id="J8b-zr-AK1"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="backDropImageView" destination="9IM-HX-qL0" id="faE-HT-nT7"/>
                         <outlet property="crewAndCastCollectionView" destination="w8n-WP-Hc6" id="z15-Cb-dlj"/>
@@ -763,6 +767,9 @@
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" red="0.81176470588235294" green="0.31764705882352939" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="lju-k5-1nm" kind="relationship" relationship="viewControllers" id="d2d-uA-Tie"/>
                         <segue destination="wTK-57-49F" kind="relationship" relationship="viewControllers" id="Lyo-Y8-dC7"/>
@@ -789,6 +796,9 @@
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="dFJ-5r-gAG"/>
                     </connections>
@@ -846,6 +856,9 @@
             <point key="canvasLocation" x="1217" y="134"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="5ZY-zT-93x"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="backImage" width="43" height="43"/>
         <image name="icOval" width="30" height="30"/>
@@ -859,7 +872,4 @@
         <image name="tab-tv" width="26" height="23"/>
         <image name="tab-tv-selected" width="24" height="22"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="5ZY-zT-93x"/>
-    </inferredMetricsTieBreakers>
 </document>

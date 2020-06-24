@@ -16,6 +16,6 @@ target 'MovieDB' do
   	pod 'Kingfisher', '~> 5.0'
 	pod 'lottie-ios'
 pod 'SwiftEntryKit', '1.2.1'
-
-
+pod 'Hero'
+pod "SkeletonView"
 end

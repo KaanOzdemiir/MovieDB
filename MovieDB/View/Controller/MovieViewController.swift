@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 class MovieViewController: UIViewController {
     
@@ -53,6 +54,7 @@ class MovieViewController: UIViewController {
         
         //MARK: Fetching Genres
         viewModel.fetchMovieGenreList()
+        
     }
     
     // MARK: Subscription of Popular Movie Service Response
@@ -145,11 +147,21 @@ extension MovieViewController: UICollectionViewDataSource {
             let topRatedMovie = viewModel.topRatedMovieList[indexPath.item]
             
             cell.setWith(topRatedMovie: topRatedMovie)
+            
+            if let id = topRatedMovie.id {
+                cell.heroID = "\(id)"
+            }
+            
             return cell
         case nowPlayingCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NowPlayingMovieCellID", for: indexPath) as! NowPlayingMovieCollectionViewCell
             
             let nowPlayingMovie = viewModel.nowPlayingMovieList[indexPath.item]
+            
+            if let id = nowPlayingMovie.id {
+                cell.moviePosterImageView.heroID = "\(id)"
+                cell.movieNameLabel.heroID = "\(id)"
+            }
             
             cell.setWith(nowPlayingMovie: nowPlayingMovie)
             return cell
@@ -161,6 +173,10 @@ extension MovieViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularMovieMovieCellID", for: indexPath) as! PopularMovieCollectionViewCell
 
         let popularMovie = viewModel.popularMovieList[indexPath.item]
+        
+        if let id = popularMovie.id {
+            cell.moviePosterImageView.heroID = "\(id)"
+        }
         
         cell.setWith(popularMovie: popularMovie)
         return cell

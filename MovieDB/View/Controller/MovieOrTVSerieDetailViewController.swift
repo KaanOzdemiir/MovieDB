@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 class MovieOrTVSerieDetailViewController: UIViewController {
     
@@ -39,6 +40,10 @@ class MovieOrTVSerieDetailViewController: UIViewController {
             return .default
         }
     }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,7 +57,7 @@ class MovieOrTVSerieDetailViewController: UIViewController {
         subscribeMovieCreditsResponse()
         
         // MARK: Subcribing to TV Serie
-        subscribeTVSerie()
+        subscribeTVSerie()        
     }
     
     // MARK: Subcription Of TV Serie
@@ -130,6 +135,9 @@ class MovieOrTVSerieDetailViewController: UIViewController {
             
             if let movieId = movie?.id {
                 self.viewModel.fetchMovieCharacterList(movieId: movieId)
+                self.posterImageView.heroID = "\(movieId)"
+                self.backDropImageView.heroID = "\(movieId)"
+                self.nameLabel.heroID = "\(movieId)"
             }
             
             if let url = URL(string: movie?.backdropPath?.url ?? "") {
