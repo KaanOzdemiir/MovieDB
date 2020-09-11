@@ -24,6 +24,7 @@
                                 <integer key="value" value="28"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </imageView>
                 </subviews>
@@ -35,6 +36,9 @@
                 <constraint firstAttribute="bottom" secondItem="oxi-qB-i2j" secondAttribute="bottom" id="mH0-sH-ayz"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="movieBackDropImageView" destination="oxi-qB-i2j" id="vv9-P7-yWg"/>
             </connections>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R0r-wA-7oT">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -14,11 +14,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MovieViewController" customModule="MovieDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="997"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="857"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0J5-y0-AE0">
-                                <rect key="frame" x="0.0" y="140" width="414" height="857"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="857"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="253" verticalHuggingPriority="253" translatesAutoresizingMaskIntoConstraints="NO" id="rds-BM-g39" userLabel="Top Rated Movie Container View">
                                         <rect key="frame" x="16" y="0.0" width="382" height="180"/>
@@ -52,18 +52,9 @@
                                                 </cells>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </collectionView>
-                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="sN4-j9-4BH">
-                                                <rect key="frame" x="0.0" y="0.0" width="382" height="180"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -71,12 +62,11 @@
                                             <constraint firstItem="fna-Da-att" firstAttribute="leading" secondItem="rds-BM-g39" secondAttribute="leading" id="2TV-GZ-peL"/>
                                             <constraint firstAttribute="height" constant="180" id="5Lm-Zv-baU"/>
                                             <constraint firstAttribute="bottom" secondItem="fna-Da-att" secondAttribute="bottom" id="MFv-Ug-x3D"/>
-                                            <constraint firstItem="sN4-j9-4BH" firstAttribute="height" secondItem="fna-Da-att" secondAttribute="height" id="NNu-fT-qk9"/>
-                                            <constraint firstItem="sN4-j9-4BH" firstAttribute="width" secondItem="fna-Da-att" secondAttribute="width" id="V1v-Us-Bth"/>
-                                            <constraint firstItem="sN4-j9-4BH" firstAttribute="centerX" secondItem="fna-Da-att" secondAttribute="centerX" id="WnJ-DL-sL4"/>
-                                            <constraint firstItem="sN4-j9-4BH" firstAttribute="centerY" secondItem="fna-Da-att" secondAttribute="centerY" id="dPy-xb-8gl"/>
                                             <constraint firstAttribute="trailing" secondItem="fna-Da-att" secondAttribute="trailing" id="yfm-Xq-LwC"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" translatesAutoresizingMaskIntoConstraints="NO" id="KQd-0V-X0R" userLabel="Now Playing Movie Container View">
                                         <rect key="frame" x="16" y="196" width="382" height="320"/>
@@ -86,6 +76,15 @@
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <color key="textColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="linesCornerRadius">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lastLineFillPercent">
+                                                        <integer key="value" value="70"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gyt-Zq-geB">
                                                 <rect key="frame" x="0.0" y="37.5" width="382" height="282.5"/>
@@ -122,17 +121,10 @@
                                                         </collectionViewCellContentView>
                                                     </collectionViewCell>
                                                 </cells>
-                                            </collectionView>
-                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="XFT-nm-O75">
-                                                <rect key="frame" x="0.0" y="35" width="382" height="288"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
-                                            </activityIndicatorView>
+                                            </collectionView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -140,15 +132,14 @@
                                             <constraint firstAttribute="trailing" secondItem="xk0-ZG-rkH" secondAttribute="trailing" id="6Bg-b9-b7E"/>
                                             <constraint firstAttribute="height" constant="320" id="8rd-If-OTX"/>
                                             <constraint firstItem="xk0-ZG-rkH" firstAttribute="top" secondItem="KQd-0V-X0R" secondAttribute="top" id="Bc8-j3-fyF"/>
-                                            <constraint firstItem="XFT-nm-O75" firstAttribute="centerY" secondItem="gyt-Zq-geB" secondAttribute="centerY" id="D02-nD-xPq"/>
-                                            <constraint firstItem="XFT-nm-O75" firstAttribute="width" secondItem="KQd-0V-X0R" secondAttribute="width" id="DzS-1w-RFU"/>
-                                            <constraint firstItem="XFT-nm-O75" firstAttribute="height" secondItem="KQd-0V-X0R" secondAttribute="height" constant="-32" id="ENG-hb-pYz"/>
                                             <constraint firstItem="gyt-Zq-geB" firstAttribute="top" secondItem="xk0-ZG-rkH" secondAttribute="bottom" constant="16" id="e3L-g8-FUe"/>
                                             <constraint firstItem="gyt-Zq-geB" firstAttribute="width" secondItem="xk0-ZG-rkH" secondAttribute="width" id="m2D-UN-ISo"/>
-                                            <constraint firstItem="XFT-nm-O75" firstAttribute="centerX" secondItem="KQd-0V-X0R" secondAttribute="centerX" id="wA4-bG-ydK"/>
                                             <constraint firstItem="gyt-Zq-geB" firstAttribute="centerX" secondItem="xk0-ZG-rkH" secondAttribute="centerX" id="wOB-ff-1Ya"/>
                                             <constraint firstAttribute="bottom" secondItem="gyt-Zq-geB" secondAttribute="bottom" id="yiK-Bv-uNl"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wfg-a6-zIh" userLabel="Popular Movie Container View">
                                         <rect key="frame" x="16" y="532" width="382" height="292"/>
@@ -158,6 +149,15 @@
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <color key="textColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="linesCornerRadius">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lastLineFillPercent">
+                                                        <integer key="value" value="40"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="n3e-1h-vKM">
                                                 <rect key="frame" x="0.0" y="21.5" width="382" height="270.5"/>
@@ -194,11 +194,10 @@
                                                         </collectionViewCellContentView>
                                                     </collectionViewCell>
                                                 </cells>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </collectionView>
-                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Phv-yH-Kn8">
-                                                <rect key="frame" x="0.0" y="27" width="382" height="260"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -207,14 +206,13 @@
                                             <constraint firstItem="plA-Nr-Ykw" firstAttribute="top" secondItem="wfg-a6-zIh" secondAttribute="top" id="PgC-u1-Ubn"/>
                                             <constraint firstAttribute="trailing" secondItem="plA-Nr-Ykw" secondAttribute="trailing" id="QzI-9o-o82"/>
                                             <constraint firstAttribute="height" constant="292" id="RBm-mp-Pmh"/>
-                                            <constraint firstItem="Phv-yH-Kn8" firstAttribute="centerY" secondItem="n3e-1h-vKM" secondAttribute="centerY" id="S56-fR-sC1"/>
-                                            <constraint firstItem="Phv-yH-Kn8" firstAttribute="width" secondItem="wfg-a6-zIh" secondAttribute="width" id="TSt-zS-WSt"/>
                                             <constraint firstAttribute="bottom" secondItem="n3e-1h-vKM" secondAttribute="bottom" id="ial-e7-eT8"/>
                                             <constraint firstItem="plA-Nr-Ykw" firstAttribute="leading" secondItem="wfg-a6-zIh" secondAttribute="leading" id="muh-QU-Ze2"/>
-                                            <constraint firstItem="Phv-yH-Kn8" firstAttribute="centerX" secondItem="wfg-a6-zIh" secondAttribute="centerX" id="r0U-5H-6XJ"/>
-                                            <constraint firstItem="Phv-yH-Kn8" firstAttribute="height" secondItem="wfg-a6-zIh" secondAttribute="height" constant="-32" id="tdv-ss-cRg"/>
                                             <constraint firstAttribute="trailing" secondItem="n3e-1h-vKM" secondAttribute="trailing" id="wjf-Wr-ajW"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -227,6 +225,9 @@
                                     <constraint firstItem="rds-BM-g39" firstAttribute="top" secondItem="0J5-y0-AE0" secondAttribute="top" id="hXb-WH-hN1"/>
                                     <constraint firstItem="KQd-0V-X0R" firstAttribute="top" secondItem="rds-BM-g39" secondAttribute="bottom" constant="16" id="sbB-Cq-gMo"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -239,6 +240,9 @@
                             <constraint firstItem="0J5-y0-AE0" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="scd-wc-rA2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" title="TOP RATED MOVIES" largeTitleDisplayMode="always" id="MEC-un-eCw">
                         <barButtonItem key="backBarButtonItem" title="Back" id="6Xn-d7-B9E"/>
@@ -249,12 +253,11 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="nowPlayingCollectionView" destination="gyt-Zq-geB" id="1C9-tT-dnS"/>
-                        <outlet property="nowPlayingMovieSpinner" destination="XFT-nm-O75" id="lvh-F9-PXA"/>
+                        <outlet property="nowPlayingTitleLabel" destination="xk0-ZG-rkH" id="AQI-oo-xRh"/>
                         <outlet property="popularMovieCollectionView" destination="n3e-1h-vKM" id="Z3D-gw-Uyj"/>
-                        <outlet property="popularMovieSpinner" destination="Phv-yH-Kn8" id="FGn-Vn-Gmq"/>
+                        <outlet property="popularMovieTitleLabel" destination="plA-Nr-Ykw" id="lUG-i8-veF"/>
                         <outlet property="scrollView" destination="0J5-y0-AE0" id="N2H-a1-ZAe"/>
                         <outlet property="topRatedMovieCollectionView" destination="fna-Da-att" id="1rO-C0-Ie6"/>
-                        <outlet property="topRatedMovieSpinner" destination="sN4-j9-4BH" id="mOl-Pa-Y9O"/>
                         <segue destination="RnO-GF-p7S" kind="presentation" identifier="SegueMovieDetailVC" modalPresentationStyle="fullScreen" id="5ZY-zT-93x"/>
                     </connections>
                 </viewController>
@@ -267,7 +270,7 @@
             <objects>
                 <viewController id="ul2-Q4-56u" customClass="TVSerieViewController" customModule="MovieDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PAv-0Q-PMG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="673"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CpN-zT-ZQ3">
@@ -315,7 +318,6 @@
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" id="TQM-mJ-kUY">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="320"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="4"/>
@@ -355,7 +357,6 @@
                                             </tableView>
                                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="wMs-GC-oJ9">
                                                 <rect key="frame" x="0.0" y="21.5" width="382" height="315"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -637,7 +638,6 @@
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" id="NGT-fR-ccM">
                                                 <rect key="frame" x="16" y="16" width="382" height="180"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="4"/>
@@ -646,7 +646,6 @@
                                                 </userDefinedRuntimeAttributes>
                                             </activityIndicatorView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="w8n-WP-Hc6" secondAttribute="trailing" constant="16" id="0AM-GH-Wzp"/>
                                             <constraint firstItem="w8n-WP-Hc6" firstAttribute="top" secondItem="7wW-Na-x5R" secondAttribute="top" constant="16" id="1Jx-4N-mFz"/>
@@ -715,11 +714,11 @@
             <objects>
                 <viewController id="0NO-El-Tfl" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ijG-LG-BgD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="673"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="ynY-Hj-TMj">
-                                <rect key="frame" x="143" y="172" width="128" height="128"/>
+                                <rect key="frame" x="143" y="32" width="128" height="128"/>
                                 <color key="tintColor" red="0.99650770430000002" green="0.27062052489999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="PrK-l1-d5R"/>
@@ -733,7 +732,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kaan ÖZDEMIR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gij-gV-XdN">
-                                <rect key="frame" x="16" y="308" width="382" height="29"/>
+                                <rect key="frame" x="16" y="168" width="382" height="29"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -761,10 +760,9 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="R0r-wA-7oT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="9nh-vc-9Mj">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" red="0.81176470588235294" green="0.31764705882352939" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <userDefinedRuntimeAttributes>
@@ -786,11 +784,9 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lju-k5-1nm" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="MOVIES" image="tab-movies" selectedImage="tab-movies-selected" id="99L-mk-6zy"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="LKJ-DW-DQn">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="LKJ-DW-DQn">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                         </textAttributes>
@@ -810,14 +806,12 @@
         <!--Profile-->
         <scene sceneID="ban-vv-UrU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mx1-Vp-heb" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="Mx1-Vp-heb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="tab-profile-selected" selectedImage="tab-profile-selected" id="tMr-s8-cZ6"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="knI-eb-ATb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="knI-eb-ATb">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                         </textAttributes>
@@ -834,14 +828,12 @@
         <!--TV-->
         <scene sceneID="qLs-kU-o6w">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wTK-57-49F" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="wTK-57-49F" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="TV" image="tab-tv" selectedImage="tab-tv-selected" id="Rfi-Pe-Gjz"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="bGO-Fi-Byw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="bGO-Fi-Byw">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                         </textAttributes>

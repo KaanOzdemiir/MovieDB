@@ -8,6 +8,7 @@
 
 import UIKit
 import Hero
+import SkeletonView
 
 class MovieViewController: UIViewController {
     
@@ -16,11 +17,9 @@ class MovieViewController: UIViewController {
     @IBOutlet weak var popularMovieCollectionView: UICollectionView!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    @IBOutlet weak var topRatedMovieSpinner: UIActivityIndicatorView!
-    @IBOutlet weak var nowPlayingMovieSpinner: UIActivityIndicatorView!
     
-    @IBOutlet weak var popularMovieSpinner: UIActivityIndicatorView!
-    
+    @IBOutlet weak var nowPlayingTitleLabel: UILabel!
+    @IBOutlet weak var popularMovieTitleLabel: UILabel!
     let viewModel = MovieViewModel()
     
     // MARK: viewDidLoad
@@ -55,13 +54,38 @@ class MovieViewController: UIViewController {
         //MARK: Fetching Genres
         viewModel.fetchMovieGenreList()
         
+        // MARK: SkeletonView Configirations
+        configureSkeletonView()
+    }
+    
+    // MARK: SkeletonView Configirations
+    func configureSkeletonView() {
+        if #available(iOS 12.0, *) {
+            if self.traitCollection.userInterfaceStyle == .dark {
+                // User Interface is Dark
+                view.showAnimatedSkeleton(usingColor: UIColor(red: 20 / 255, green: 23 / 255, blue: 22 / 255, alpha: 1))
+                
+            } else {
+                // User Interface is Light
+                let gradient = SkeletonGradient(baseColor: UIColor(red: 240 / 255, green: 243 / 255, blue: 242 / 255, alpha: 1))
+                let animation = SkeletonAnimationBuilder().makeSlidingAnimation(withDirection: .topLeftBottomRight, duration: 2)
+                view.showAnimatedGradientSkeleton(usingGradient: gradient, animation: animation)
+            }
+        } else {
+            // Fallback on earlier versions
+            view.showAnimatedSkeleton(usingColor: UIColor(red: 240 / 255, green: 242 / 255, blue: 244 / 255, alpha: 1))
+        }
     }
     
     // MARK: Subscription of Popular Movie Service Response
     func subscribePopularMovieResponse() {
         
         viewModel.popularMovieResponse.subscribe(onNext: { [weak self] (nowPlayingMovieResponse) in
-            self?.popularMovieSpinner.stopAnimating()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self?.popularMovieCollectionView.hideSkeleton()
+                self?.popularMovieTitleLabel.hideSkeleton()
+            }
             self?.popularMovieCollectionView.reloadData()
             }, onError: { (error) in
                 print(error.localizedDescription)
@@ -73,7 +97,10 @@ class MovieViewController: UIViewController {
     func subscribeNowPlayingMovieResponse() {
         
         viewModel.nowPlayingMovieResponse.subscribe(onNext: { [weak self] (nowPlayingMovieResponse) in
-            self?.nowPlayingMovieSpinner.stopAnimating()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self?.nowPlayingCollectionView.hideSkeleton()
+                self?.nowPlayingTitleLabel.hideSkeleton()
+            }
             self?.nowPlayingCollectionView.reloadData()
             }, onError: { (error) in
                 print(error.localizedDescription)
@@ -85,7 +112,9 @@ class MovieViewController: UIViewController {
     func subscribeTopRatedMovieResponse() {
         
         viewModel.topRatedMovieResponse.subscribe(onNext: { [weak self] (topRatedMovieResponse) in
-            self?.topRatedMovieSpinner.stopAnimating()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self?.topRatedMovieCollectionView.hideSkeleton()
+            }
             self?.topRatedMovieCollectionView.reloadData()
             }, onError: { (error) in
                 print(error.localizedDescription)
@@ -124,7 +153,39 @@ class MovieViewController: UIViewController {
 }
 
 // MARK: UICollectionViewDataSource Extension
-extension MovieViewController: UICollectionViewDataSource {
+extension MovieViewController: SkeletonCollectionViewDataSource {
+
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        
+        switch skeletonView {
+        case topRatedMovieCollectionView:
+            return "TopRatedMovieCellID"
+        case nowPlayingCollectionView:
+            return "NowPlayingMovieCellID"
+        case popularMovieCollectionView:
+            return "PopularMovieMovieCellID"
+        default:
+            return ""
+        }
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        switch skeletonView {
+        case topRatedMovieCollectionView:
+            return viewModel.topRatedMovieList.count
+        case nowPlayingCollectionView:
+            return viewModel.nowPlayingMovieList.count
+        case popularMovieCollectionView:
+            return viewModel.popularMovieList.count
+        default:
+            return 0
+        }
+    }
+    
+    func numSections(in collectionSkeletonView: UICollectionView) -> Int {
+        return 1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case topRatedMovieCollectionView:

@@ -19,6 +19,7 @@ PODS:
     - RxSwift (~> 5)
   - RxSwift (5.0.0)
   - Shimmer (1.0.2)
+  - SkeletonView (1.8.7)
   - SwiftEntryKit (1.2.1):
     - QuickLayout (= 3.0.0)
 
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - RxCocoa
   - RxSwift
   - Shimmer
+  - SkeletonView
   - SwiftEntryKit (= 1.2.1)
 
 SPEC REPOS:
@@ -47,6 +49,7 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - Shimmer
+    - SkeletonView
     - SwiftEntryKit
 
 SPEC CHECKSUMS:
@@ -62,8 +65,9 @@ SPEC CHECKSUMS:
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
+  SkeletonView: ba5370f41280b2f0a76918bb143c1294232bb4f4
   SwiftEntryKit: 1661b766dd22b07679e6ebb326ccfbd81ceb0a20
 
-PODFILE CHECKSUM: 1dccb472be454b008b34c75430c30a61f9ced51f
+PODFILE CHECKSUM: 74ad9cbefc68c2b5a07db8da9474e72d1b52989c
 
 COCOAPODS: 1.9.1
