@@ -111,7 +111,7 @@ class MovieDetailVC: UIViewController {
         }
         
         
-        for imageView in 0..<(Int((movie.voteAverage ?? 0) / 2)) {
+        for imageView in 0..<(Int((movie.voteAverage ?? 0).rounded(.toNearestOrEven) / 2)) {
             self.starImageViews[imageView].image = #imageLiteral(resourceName: "icStarSelected")
         }
         
