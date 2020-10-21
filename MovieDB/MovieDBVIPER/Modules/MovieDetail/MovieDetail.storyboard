@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="253" verticalHuggingPriority="253" translatesAutoresizingMaskIntoConstraints="NO" id="1gr-3q-Hce">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="463.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="462.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dEd-Op-IIE">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="328"/>
@@ -150,13 +150,11 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1r-2n-7RI">
-                                                <rect key="frame" x="16" y="426" width="382" height="21.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie description" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1r-2n-7RI">
+                                                <rect key="frame" x="16" y="426" width="382" height="20.5"/>
+                                                <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="skeletonCornerRadius">
                                                         <real key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
@@ -258,7 +256,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Full Cast &amp; Crew" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEY-BI-Dnv">
-                                        <rect key="frame" x="16" y="479.5" width="382" height="20.5"/>
+                                        <rect key="frame" x="16" y="478.5" width="382" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.2784313725" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -273,7 +271,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GZb-IJ-WcW">
-                                        <rect key="frame" x="0.0" y="516" width="414" height="212"/>
+                                        <rect key="frame" x="0.0" y="515" width="414" height="212"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ibK-aU-AaH">
                                                 <rect key="frame" x="16" y="16" width="382" height="180"/>
@@ -400,7 +398,7 @@
                         <outlet property="crewAndCastTitleLabel" destination="LEY-BI-Dnv" id="y2v-m9-Co2"/>
                         <outlet property="genreLabel" destination="wcY-Ee-VWq" id="MfY-QB-bOu"/>
                         <outlet property="nameLabel" destination="6oD-6N-o5L" id="Wbv-Ft-3sL"/>
-                        <outlet property="overviewLabel" destination="c1r-2n-7RI" id="IEp-ch-glW"/>
+                        <outlet property="overviewLabel" destination="c1r-2n-7RI" id="zXg-ED-DiZ"/>
                         <outlet property="posterImageView" destination="EL1-zU-bhB" id="c9C-1r-PAL"/>
                         <outlet property="voteAvrageDecimalValueLabel" destination="SEQ-4Y-N5L" id="Cbp-GV-evm"/>
                         <outlet property="voteAvrageIntegerValueLabel" destination="YRZ-dR-efP" id="GdQ-xe-a8y"/>

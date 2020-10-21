@@ -18,6 +18,7 @@ class MovieCrewCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        crewMemberPhotoImageView.image = UIImage(named:"questionMark")
     }
     
     func setWith(crew: CrewData) {        
