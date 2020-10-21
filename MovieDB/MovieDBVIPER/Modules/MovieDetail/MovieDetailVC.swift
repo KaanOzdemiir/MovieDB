@@ -166,6 +166,7 @@ extension MovieDetailVC: MovieDetailViewProtocol{
     func handleOutput(_ output: MovieDetailPresenterOutput) {
         switch output {
         case .showMovie(let movie):
+            print(movie)
             setData(movie)
         case .showCrew(let crew):
             self.crewList = crew

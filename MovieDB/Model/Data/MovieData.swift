@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 
 // MARK: - MovieResult
-class MovieResult: Mappable {
+class MovieResult: Mappable, CustomStringConvertible {
     var popularity: Double?
     var voteCount: Int?
     var video: Bool?
