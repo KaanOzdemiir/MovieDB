@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="onc-SK-AGH" customClass="NowPlayingCollectionViewCell" customModule="MovieDBVIPER" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="327" height="393"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="327" height="393"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZ0-Zi-zum">
+                        <rect key="frame" x="0.0" y="0.0" width="327" height="393"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JzD-fw-PDy">
+                                <rect key="frame" x="0.0" y="0.0" width="327" height="393"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MIP-Ox-cje">
+                                        <rect key="frame" x="0.0" y="0.0" width="327" height="345"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJk-aS-30x">
+                                        <rect key="frame" x="0.0" y="353" width="327" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="cde-vf-62m"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="linesCornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="JzD-fw-PDy" secondAttribute="trailing" id="PWO-Ab-9Lo"/>
+                            <constraint firstItem="JzD-fw-PDy" firstAttribute="top" secondItem="bZ0-Zi-zum" secondAttribute="top" id="ayR-Og-Bci"/>
+                            <constraint firstItem="JzD-fw-PDy" firstAttribute="leading" secondItem="bZ0-Zi-zum" secondAttribute="leading" id="qXc-cc-Av8"/>
+                            <constraint firstAttribute="bottom" secondItem="JzD-fw-PDy" secondAttribute="bottom" id="vbq-Ud-Qq8"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="DoM-7i-ObP"/>
+            <constraints>
+                <constraint firstItem="bZ0-Zi-zum" firstAttribute="top" secondItem="onc-SK-AGH" secondAttribute="top" id="9jW-6S-FVT"/>
+                <constraint firstAttribute="bottom" secondItem="bZ0-Zi-zum" secondAttribute="bottom" id="ejd-Qu-O1v"/>
+                <constraint firstAttribute="trailing" secondItem="bZ0-Zi-zum" secondAttribute="trailing" id="mdV-Ra-GT1"/>
+                <constraint firstItem="bZ0-Zi-zum" firstAttribute="leading" secondItem="onc-SK-AGH" secondAttribute="leading" id="pEC-tj-j8k"/>
+            </constraints>
+            <size key="customSize" width="327" height="393"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="movieNameLabel" destination="rJk-aS-30x" id="DUk-XX-ruA"/>
+                <outlet property="moviePosterImageView" destination="MIP-Ox-cje" id="bHn-6S-RpF"/>
+            </connections>
+            <point key="canvasLocation" x="16.666666666666668" y="189.84375"/>
+        </collectionViewCell>
+    </objects>
+</document>
