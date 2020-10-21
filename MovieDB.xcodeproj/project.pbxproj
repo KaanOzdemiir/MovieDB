@@ -267,7 +267,7 @@
 				F7F54F0F23648333005D3100 /* Model */,
 				F7F54F132364836E005D3100 /* Repository */,
 				F7F54F182364859A005D3100 /* API */,
-				F7F5E896250B63FF00669F9E /* MovieDBMVC */,
+				F7F5E896250B63FF00669F9E /* MovieDBMVVM */,
 				F7F5E897250B641F00669F9E /* MovieDBVIPER */,
 			);
 			path = MovieDB;
@@ -444,7 +444,7 @@
 			path = MovieCrewCollectionViewCell;
 			sourceTree = "<group>";
 		};
-		F7F5E896250B63FF00669F9E /* MovieDBMVC */ = {
+		F7F5E896250B63FF00669F9E /* MovieDBMVVM */ = {
 			isa = PBXGroup;
 			children = (
 				F7F54EFD236481B5005D3100 /* Main.storyboard */,
@@ -453,7 +453,7 @@
 				F7F54F0E23648323005D3100 /* Supporting Files */,
 				F7F54F05236481B7005D3100 /* Info.plist */,
 			);
-			path = MovieDBMVC;
+			path = MovieDBMVVM;
 			sourceTree = "<group>";
 		};
 		F7F5E897250B641F00669F9E /* MovieDBVIPER */ = {
