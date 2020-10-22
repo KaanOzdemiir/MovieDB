@@ -518,8 +518,8 @@
 		F7F5E8A8250B6E3200669F9E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				F7CFB0A825400A5A00DDE9C1 /* MovieDetail */,
 				F7F5E8A9250B6E4C00669F9E /* Movies */,
+				F7CFB0A825400A5A00DDE9C1 /* MovieDetail */,
 			);
 			path = Modules;
 			sourceTree = "<group>";

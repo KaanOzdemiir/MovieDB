@@ -38,10 +38,12 @@ class MovieDetailInteractor: MovieDetailInteractorProtocol {
             case .success(let response):
                 if let crewList = response?.crew {
                     self?.delegate?.handleOutput(.showCrew(crewList))
+                    self?.delegate?.handleOutput(.setLoading(false))
                 }
                 
                 if let castList = response?.cast {
                     self?.delegate?.handleOutput(.showCast(castList))
+                    self?.delegate?.handleOutput(.setLoading(false))
                 }
             case .failure(let error):
                 print(error?.localizedDescription)

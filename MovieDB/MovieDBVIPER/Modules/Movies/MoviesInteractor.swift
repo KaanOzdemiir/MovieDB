@@ -35,6 +35,7 @@ class MoviesInteractor: MoviesInteractorProtocol {
             case .success(let response):
                 let movies = response?.results ?? []
                 self.delegate?.handleOutput(.showTopRatedMovies(movies))
+                self.delegate?.handleOutput(.setLoading(false))
             case .failure(let error): break
                 
             }
@@ -51,6 +52,7 @@ class MoviesInteractor: MoviesInteractorProtocol {
             case .success(let response):
                 let movies = response?.results ?? []
                 self.delegate?.handleOutput(.showNowPlayingMovies(movies))
+                self.delegate?.handleOutput(.setLoading(false))
             case .failure(let error): break
                 
             }
@@ -68,6 +70,7 @@ class MoviesInteractor: MoviesInteractorProtocol {
             case .success(let response):
                 let movies = response?.results ?? []
                 self.delegate?.handleOutput(.showPopularMovies(movies))
+                self.delegate?.handleOutput(.setLoading(false))
             case .failure(let error): break
                 
             }
