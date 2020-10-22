@@ -7,20 +7,21 @@
 //
 
 import Foundation
+import MovieDBAPI
 
 // MARK: Presenter
 
 protocol MoviesPresenterProtocol: class {
     func load()
-    func selectMovie(movie: MovieResult)
+    func selectMovie(movie: MovieData)
 }
 
 enum MoviesPresenterOutput {
     case updateTitle(String)
     case setLoading(Bool)
-    case showTopRatedMovies([MovieResult])
-    case showNowPlayingMovies([MovieResult])
-    case showPopularMovies([MovieResult])
+    case showTopRatedMovies([MovieData])
+    case showNowPlayingMovies([MovieData])
+    case showPopularMovies([MovieData])
 }
 
 // MARK: View
@@ -30,7 +31,7 @@ protocol MoviesViewProtocol: class {
 
 // MARK: Router
 enum MoviesRoute {
-    case detail(MovieResult)
+    case detail(MovieData)
 }
 
 protocol MoviesRouterProtocol: class {
@@ -41,7 +42,7 @@ protocol MoviesRouterProtocol: class {
 protocol MoviesInteractorProtocol: class {
     var delegate: MoviesInteractorDelegate? {get set}
     func load()
-    func selectMovie(movie: MovieResult)
+    func selectMovie(movie: MovieData)
 }
 
 protocol MoviesInteractorDelegate: class {
@@ -50,8 +51,8 @@ protocol MoviesInteractorDelegate: class {
 
 enum MoviesInteractorOutput {
     case setLoading(Bool)
-    case showTopRatedMovies([MovieResult])
-    case showNowPlayingMovies([MovieResult])
-    case showPopularMovies([MovieResult])
-    case showMovieDetail(MovieResult)
+    case showTopRatedMovies([MovieData])
+    case showNowPlayingMovies([MovieData])
+    case showPopularMovies([MovieData])
+    case showMovieDetail(MovieData)
 }

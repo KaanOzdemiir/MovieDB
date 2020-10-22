@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MovieDBAPI
 
 class MoviesVC: UIViewController {
     
@@ -17,9 +18,9 @@ class MoviesVC: UIViewController {
     }
     
     var presenter: MoviesPresenterProtocol!
-    private var topRatedMovies: [MovieResult] = []
-    private var nowPlayingMovies: [MovieResult] = []
-    private var popularMovies: [MovieResult] = []
+    private var topRatedMovies: [MovieData] = []
+    private var nowPlayingMovies: [MovieData] = []
+    private var popularMovies: [MovieData] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,9 +92,9 @@ extension MoviesVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {        
         switch indexPath.row {
         case 0:
-            return 224
+            return 242
         case 1:
-            return 364
+            return 382
         case 2:
             return 288
         default:
@@ -103,7 +104,7 @@ extension MoviesVC: UITableViewDelegate {
 }
 
 extension MoviesVC: CollectionViewTableViewCellProtocol{
-    func didSelect(movie: MovieResult) {
+    func didSelect(movie: MovieData) {
         presenter.selectMovie(movie: movie)
     }
 }

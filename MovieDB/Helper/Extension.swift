@@ -10,7 +10,7 @@ import UIKit
 
 extension String {
     var url: String {
-        return "\(AlamofireService.urlScheme)://image.tmdb.org/t/p/w500/\(self)"
+        return "https://image.tmdb.org/t/p/w500/\(self)"
     }
     
     func getLineSpacedAttributedText(lineSpacing: CGFloat = 0) -> NSMutableAttributedString {

@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import MovieDBAPI
 
 class TopRatedMovieCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var movieBackDropImageView: UIImageView!
@@ -18,7 +19,7 @@ class TopRatedMovieCollectionViewCell: UICollectionViewCell {
     }
 
     
-    func setWith(topRatedMovie: MovieResult) {
+    func setWith(topRatedMovie: MovieData) {
         if let url = URL(string: topRatedMovie.backdropPath?.url ?? "") {
             let processor = DownsamplingImageProcessor(size: movieBackDropImageView.frame.size)
                 |> RoundCornerImageProcessor(cornerRadius: 20)

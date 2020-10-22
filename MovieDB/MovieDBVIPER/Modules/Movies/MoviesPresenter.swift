@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MovieDBAPI
 
 final class MoviesPresenter: MoviesPresenterProtocol {
     
@@ -30,7 +31,7 @@ final class MoviesPresenter: MoviesPresenterProtocol {
         interactor.load()
     }
     
-    func selectMovie(movie: MovieResult) {
+    func selectMovie(movie: MovieData) {
         interactor.selectMovie(movie: movie)
     }
 }

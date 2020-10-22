@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import MovieDBAPI
 
 class PopularMovieCollectionViewCell: UICollectionViewCell {
     
@@ -21,11 +22,11 @@ class PopularMovieCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-//        voteAvrageContainerView.applyGradient(startColor: gradientStartColor, endColor: gradientEndColor)
+        voteAvrageContainerView.applyGradient(startColor: gradientStartColor, endColor: gradientEndColor)
 
     }
 
-    func setWith(popularMovie: MovieResult) {
+    func setWith(popularMovie: MovieData) {
         if let url = URL(string: popularMovie.posterPath?.url ?? "") {
             let processor = DownsamplingImageProcessor(size: moviePosterImageView.frame.size)
                 |> RoundCornerImageProcessor(cornerRadius: 20)

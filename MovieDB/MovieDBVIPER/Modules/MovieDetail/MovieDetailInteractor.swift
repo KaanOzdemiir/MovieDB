@@ -8,16 +8,18 @@
 
 import Foundation
 import RxSwift
+import MovieDBAPI
 
 class MovieDetailInteractor: MovieDetailInteractorProtocol {
     var delegate: MovieDetailInteractorDelegate?
 
     let disposeBag = DisposeBag()
-    let creditsRepository = CreditsRepository()
-    
-    init() {
+    var service: APIService
+    init(service: APIService) {
+        self.service = service
     }
-    func load(movie: MovieResult) {
+    
+    func load(movie: MovieData) {
         delegate?.handleOutput(.setLoading(true))
         delegate?.handleOutput(.showMovieDetail(movie))
         
@@ -25,30 +27,26 @@ class MovieDetailInteractor: MovieDetailInteractorProtocol {
         fetchMovieCharacterList(movieId: movieId)
     }
 
-    func selectMovie(movie: MovieResult) {
+    func selectMovie(movie: MovieData) {
         delegate?.handleOutput(.showMovieDetail(movie))
         
     }
 
     func fetchMovieCharacterList(movieId id: Int) {
-        
-        let urlPath = "/\(ApplicationConfig.apiVersion)/movie/\(id)/credits"
-        
-        creditsRepository
-            .getCrewAndCastList(urlPath: urlPath).subscribe(onNext: { [weak self] (creditsResponse) in
-                
-                if let crewList = creditsResponse.crew {
+        service.getCredits(id: "\(id)", params: [:]) { [weak self] (result) in
+            switch result{
+            case .success(let response):
+                if let crewList = response?.crew {
                     self?.delegate?.handleOutput(.showCrew(crewList))
                 }
                 
-                if let castList = creditsResponse.cast {
+                if let castList = response?.cast {
                     self?.delegate?.handleOutput(.showCast(castList))
                 }
-                
-                }, onError: { [weak self] (error) in
-                    print("(getCrewAndCastList) Hata oluştu:\(error.localizedDescription)")
-            })
-            .disposed(by: disposeBag)
+            case .failure(let error):
+                print(error?.localizedDescription)
+            }
+        }
     }
 //
 //    func fetchTVSerieCharacterList(tvSerieId id: Int) {

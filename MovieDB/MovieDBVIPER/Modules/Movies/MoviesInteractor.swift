@@ -8,15 +8,14 @@
 
 import Foundation
 import RxSwift
+import MovieDBAPI
 
 class MoviesInteractor: MoviesInteractorProtocol {
     weak var delegate: MoviesInteractorDelegate?
     
-    private let movieRepository = MovieRespository()
-    private let disposeBag = DisposeBag()
-    private var movies: [MovieResult] = []
-    init() {
-        
+    var service: APIService
+    init(service: APIService) {
+        self.service = service
     }
     
     func load() {
@@ -28,55 +27,54 @@ class MoviesInteractor: MoviesInteractorProtocol {
     
     func fetchTopRatedMovieList() {
         
-        let params = MovieServiceParams()
-        params.page = 1
-        
-        movieRepository
-            .getTopRatedMovieList(params: params).subscribe(onNext: { [weak self] (topRatedMovieResponse) in
-                if let topRatedMovieList = topRatedMovieResponse.results {
-                    self?.delegate?.handleOutput(.showTopRatedMovies(topRatedMovieList))
-                }
-            }, onError: { [weak self] (error) in
-                print("(getTopRatedMovieList) Hata oluştu:\(error.localizedDescription)")
-            })
-            .disposed(by: disposeBag)
+        let params: [String: Any] = [
+            "page": "1"
+        ]
+        service.getTopRatedMovies(params: params) { (result) in
+            switch result{
+            case .success(let response):
+                let movies = response?.results ?? []
+                self.delegate?.handleOutput(.showTopRatedMovies(movies))
+            case .failure(let error): break
+                
+            }
+        }
     }
     
     // MARK: fetchNowPlayingMovieList
     func fetchNowPlayingMovieList() {
-      
-      let params = MovieServiceParams()
-      params.page = 1
-        
-        movieRepository
-          .getNowPlayingMovieList(params: params).subscribe(onNext: { [weak self] (nowPlayingMovieResponse) in
-              if let nowPlayingMovieList = nowPlayingMovieResponse.results {
-                self?.delegate?.handleOutput(.showNowPlayingMovies(nowPlayingMovieList))
-              }
-        }, onError: { [weak self] (error) in
-            print("(getNowPlayingMovieList) Hata oluştu:\(error.localizedDescription)")
-        })
-        .disposed(by: disposeBag)
+        let params: [String: Any] = [
+            "page": "1"
+        ]
+        service.getNowPlayingMovies(params: params) { (result) in
+            switch result{
+            case .success(let response):
+                let movies = response?.results ?? []
+                self.delegate?.handleOutput(.showNowPlayingMovies(movies))
+            case .failure(let error): break
+                
+            }
+        }
     }
     
     // MARK: fetchPopularMovieList
     func fetchPopularMovieList() {
       
-      let params = MovieServiceParams()
-      params.page = 1
-        
-        movieRepository
-          .getPopularMovieList(params: params).subscribe(onNext: { [weak self] (popularMovieResponse) in
-            if let popularMovieList = popularMovieResponse.results {
-              self?.delegate?.handleOutput(.showPopularMovies(popularMovieList))
+        let params: [String: Any] = [
+            "page": "1"
+        ]
+        service.getPopularMovies(params: params) { (result) in
+            switch result{
+            case .success(let response):
+                let movies = response?.results ?? []
+                self.delegate?.handleOutput(.showPopularMovies(movies))
+            case .failure(let error): break
+                
             }
-        }, onError: { [weak self] (error) in
-            print("(fetchPopularMovieList) Hata oluştu:\(error.localizedDescription)")
-        })
-        .disposed(by: disposeBag)
+        }
     }
     
-    func selectMovie(movie: MovieResult) {
+    func selectMovie(movie: MovieData) {
         delegate?.handleOutput(.showMovieDetail(movie))
     }
     

@@ -14,7 +14,7 @@ final class MoviesBuilder {
         let storyboard = UIStoryboard(name: "Movies", bundle: nil)
         let view = storyboard.instantiateViewController(withIdentifier: "MoviesVC") as! MoviesVC
         let router = MoviesRouter(view: view)
-        let interactor = MoviesInteractor()
+        let interactor = MoviesInteractor(service: app.service)
         view.presenter = MoviesPresenter(view: view, interactor: interactor, router: router)
         return view
     }

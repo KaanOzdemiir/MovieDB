@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MovieDBAPI
 
 class CollectionViewTableViewCell: UITableViewCell {
 
@@ -16,9 +17,9 @@ class CollectionViewTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var index = 0
-    var topRatedMovies: [MovieResult] = []
-    var nowPlayingMovies: [MovieResult] = []
-    var popularMovies: [MovieResult] = []
+    var topRatedMovies: [MovieData] = []
+    var nowPlayingMovies: [MovieData] = []
+    var popularMovies: [MovieData] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -112,7 +113,7 @@ extension CollectionViewTableViewCell: UICollectionViewDelegateFlowLayout {
         case 1:
             return .init(width: 160, height: 328)
         case 2:
-            return .init(width: 160, height: 248)
+            return .init(width: 160, height: 238)
         default:
             return .zero
         }
@@ -120,5 +121,5 @@ extension CollectionViewTableViewCell: UICollectionViewDelegateFlowLayout {
 }
 
 protocol CollectionViewTableViewCellProtocol: class {
-    func didSelect(movie: MovieResult)
+    func didSelect(movie: MovieData)
 }

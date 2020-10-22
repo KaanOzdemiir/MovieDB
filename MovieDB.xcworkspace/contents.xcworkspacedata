@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:MovieDBAPI/MovieDBAPI.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:MovieDB.xcodeproj">
    </FileRef>
    <FileRef

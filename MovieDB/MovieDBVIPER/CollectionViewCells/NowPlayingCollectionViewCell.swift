@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import MovieDBAPI
 
 class NowPlayingCollectionViewCell: UICollectionViewCell {
     
@@ -19,7 +20,7 @@ class NowPlayingCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
 
-    func setWith(nowPlayingMovie: MovieResult) {
+    func setWith(nowPlayingMovie: MovieData) {
         if let url = URL(string: nowPlayingMovie.posterPath?.url ?? "") {
             let processor = DownsamplingImageProcessor(size: moviePosterImageView.frame.size)
                 |> RoundCornerImageProcessor(cornerRadius: 20)

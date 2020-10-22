@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MovieDBAPI
 
 // MARK: Presenter
 
@@ -17,7 +18,7 @@ protocol MovieDetailPresenterProtocol: class {
 enum MovieDetailPresenterOutput {
     case updateTitle(String)
     case setLoading(Bool)
-    case showMovie(MovieResult)
+    case showMovie(MovieData)
     case showCrew([CrewData])
     case showCast([CastData])
 }
@@ -36,8 +37,8 @@ enum MovieDetailRouter: Equatable {
 // MARK: Interactor
 protocol MovieDetailInteractorProtocol: class {
     var delegate: MovieDetailInteractorDelegate? {get set}
-    func load(movie: MovieResult)
-    func selectMovie(movie: MovieResult)
+    func load(movie: MovieData)
+    func selectMovie(movie: MovieData)
 }
 
 protocol MovieDetailInteractorDelegate: class {
@@ -46,8 +47,8 @@ protocol MovieDetailInteractorDelegate: class {
 
 enum MovieDetailInteractorOutput {
     case setLoading(Bool)
-    case showMovies([MovieResult])
-    case showMovieDetail(MovieResult)
+    case showMovies([MovieData])
+    case showMovieDetail(MovieData)
     case showCrew([CrewData])
     case showCast([CastData])
 }

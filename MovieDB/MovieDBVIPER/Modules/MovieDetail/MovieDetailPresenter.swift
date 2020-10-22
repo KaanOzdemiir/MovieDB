@@ -7,17 +7,18 @@
 //
 
 import Foundation
+import MovieDBAPI
 
 final class MovieDetailPresenter: MovieDetailPresenterProtocol {
     
     let view: MovieDetailViewProtocol!
     private let interactor: MovieDetailInteractorProtocol!
-    private let movie: MovieResult
+    private let movie: MovieData
 
     init(
         view: MovieDetailViewProtocol,
         interactor: MovieDetailInteractorProtocol,
-        movie: MovieResult
+        movie: MovieData
         ) {
         self.view = view
         self.interactor = interactor

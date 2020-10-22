@@ -18,13 +18,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qRm-TZ-TJ8">
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qRm-TZ-TJ8">
                         <rect key="frame" x="8" y="8" width="304" height="200"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHQ-JU-4XU">
-                                <rect key="frame" x="0.0" y="0.0" width="304" height="20"/>
+                                <rect key="frame" x="0.0" y="0.0" width="304" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="tvI-dH-UwA"/>
+                                    <constraint firstAttribute="height" constant="30" id="tvI-dH-UwA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" red="0.68627450980392157" green="0.68627450980392157" blue="0.68627450980392157" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
@@ -34,7 +34,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Cof-Oe-DbC">
-                                <rect key="frame" x="0.0" y="28" width="304" height="172"/>
+                                <rect key="frame" x="0.0" y="30" width="304" height="170"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="V5N-bE-GkK">
                                     <size key="itemSize" width="128" height="128"/>

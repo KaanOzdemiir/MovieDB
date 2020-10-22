@@ -8,6 +8,7 @@
 
 import UIKit
 import SkeletonView
+import MovieDBAPI
 
 class MovieDetailVC: UIViewController {
     
@@ -82,7 +83,7 @@ class MovieDetailVC: UIViewController {
         }
     }
     
-    func setData(_ movie: MovieResult) {
+    func setData(_ movie: MovieData) {
         if let url = URL(string: movie.backdropPath?.url ?? "") {
             self.backDropImageView.kf.setImage(with: url)
             backDropImageView.hideSkeleton()
@@ -119,17 +120,17 @@ class MovieDetailVC: UIViewController {
             imageView.hideSkeleton()
         }
         
-        var genreList: [String] = []
-        movie.genreids?.forEach({ (id) in
-            if let genre = ApplicationVariables.movieGenreList?.first(where: {$0.id == id})?.name {
-                genreList.append(genre)
-            }
-        })
+//        var genreList: [String] = []
+//        movie.genreids?.forEach({ (id) in
+//            if let genre = ApplicationVariables.movieGenreList?.first(where: {$0.id == id})?.name {
+//                genreList.append(genre)
+//            }
+//        })
         
-        if let genres = genreList.getStringFromArraySeperatedByComa() {
-            self.genreLabel.text = genres
-            genreLabel.hideSkeleton()
-        }
+//        if let genres = genreList.getStringFromArraySeperatedByComa() {
+//            self.genreLabel.text = genres
+//            genreLabel.hideSkeleton()
+//        }
     }
 }
 
@@ -160,7 +161,7 @@ extension MovieDetailVC: UICollectionViewDataSource {
 
 
 extension MovieDetailVC: MovieDetailViewProtocol{
-    func update(_ movie: MovieResult) {
+    func update(_ movie: MovieData) {
     }
     
     func handleOutput(_ output: MovieDetailPresenterOutput) {
